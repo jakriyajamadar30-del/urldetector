@@ -1,0 +1,154 @@
+/* static/style.css */
+
+body{
+
+    margin:0;
+    padding:0;
+
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:Arial;
+
+    background:linear-gradient(
+        135deg,
+        #0f2027,
+        #203a43,
+        #2c5364
+    );
+}
+
+.container{
+
+    background:white;
+
+    padding:35px;
+
+    width:500px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+}
+
+h1{
+
+    margin-bottom:25px;
+
+    font-size:34px;
+
+    color:black;
+}
+
+input{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    border:1px solid #ccc;
+
+    font-size:18px;
+
+    margin-bottom:18px;
+
+    box-sizing:border-box;
+}
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:linear-gradient(
+        90deg,
+        #0072ff,
+        #0052d4
+    );
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+button:hover{
+
+    background:linear-gradient(
+        90deg,
+        #0052d4,
+        #003c9e
+    );
+}
+
+#resultBox{
+
+    margin-top:25px;
+}
+
+.safe{
+
+    color:green;
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
+.danger{
+
+    color:red;
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
+.invalid{
+
+    color:red;
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
+.message{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    margin-top:10px;
+}
+
+/* SAFE MESSAGE */
+.safe + .message{
+
+    color:green;
+}
+
+/* PHISHING MESSAGE */
+.danger + .message{
+
+    color:red;
+}
+
+/* INVALID MESSAGE */
+.invalid + .message{
+
+    color:red;
+}

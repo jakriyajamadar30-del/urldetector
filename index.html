@@ -1,0 +1,104 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Link Detector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+
+        function clearResult(){
+
+            document.getElementById("resultBox").innerHTML = "";
+
+        }
+
+        // Keep link + prediction for 8 sec
+        window.onload = function(){
+
+            let resultBox =
+            document.getElementById("resultBox");
+
+            if(resultBox.innerText.trim() !== ""){
+
+                setTimeout(function(){
+
+                    window.location.href = "/";
+
+                }, 8000);
+
+            }
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🛡️ LINK DETECTOR</h1>
+
+        <form method="POST" autocomplete="off">
+
+            <input
+                type="text"
+                name="url"
+                value="{{ url }}"
+                placeholder="Enter website link here..."
+                autocomplete="off"
+                onfocus="clearResult()"
+                oninput="clearResult()"
+                required
+            >
+
+            <button type="submit">
+                SCAN LINK
+            </button>
+
+        </form>
+
+        <div id="resultBox">
+
+            {% if result %}
+
+                <div class="
+                {% if 'SAFE' in result %}
+                safe
+                {% elif 'PHISHING' in result %}
+                danger
+                {% else %}
+                invalid
+                {% endif %}
+                ">
+
+                    {{ result|safe }}
+
+                </div>
+
+                <div class="message">
+
+                    {{ message }}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
